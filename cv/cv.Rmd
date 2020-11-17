@@ -9,7 +9,7 @@ github: mohowu
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::moderncv:
-    theme: fancy
+    theme: banking
 editor_options: 
   chunk_output_type: console
 ---
@@ -120,8 +120,8 @@ read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4RdajvSkIBAwv3lVP6Rx
 # Publications
 
 ```{r}
-# 
-# bibliography_entries("packages.bib") %>%
-#   arrange(desc(author$family), issued)
+
+bibliography_entries("pub.bib") 
+
 ```
 
