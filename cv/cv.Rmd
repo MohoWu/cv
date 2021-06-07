@@ -53,6 +53,18 @@ read_csv("https://docs.google.com/spreadsheets/d/1ETdDJGgHBfp2cYTPwX8GS34xaHrYzo
 ```
 
 
+# Teaching Experience
+
+```{r}
+
+read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTw1G9EQTq60UwuYYDVba9yMhX4xSxghHtbD0NB0XlIHkNsU7dA-hLiY1As1r8WXFAfopCPA_Kg-GK8/pub?output=csv") %>% 
+  brief_entries(what = what,
+                when = when,
+                with = where)
+
+
+```
+
 # Techinal Skills
 
 ## Programming Languages
@@ -76,21 +88,9 @@ tribble(
 tribble(
   ~language, ~level,
   "RStudio, ADMS-Urban, MS Word", "Advanced",
-  "ArcGIS, FME, MS Excel, Sketchup, Fusion 360", "Intermediate"
+  "PyCharm, ArcGIS, FME, MS Excel, Sketchup, Fusion 360", "Intermediate"
 ) %>% 
   brief_entries(language, level)
-
-```
-
-# Teaching Experience
-
-```{r}
-
-read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTw1G9EQTq60UwuYYDVba9yMhX4xSxghHtbD0NB0XlIHkNsU7dA-hLiY1As1r8WXFAfopCPA_Kg-GK8/pub?output=csv") %>% 
-  brief_entries(what = what,
-                when = when,
-                with = where)
-
 
 ```
 
