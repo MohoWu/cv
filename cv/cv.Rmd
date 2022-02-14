@@ -1,10 +1,10 @@
 ---
 name: Hao
 surname: Wu
-position: Senior Data Scientist
-address: Ricardo Energy & Environment
+position: Data Scientist
+address: Argus Media
 www: moho.netlify.com
-email: hao.wu@ricardo.com
+email: hao.wu@argusmedia.com
 github: mohowu
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
@@ -53,11 +53,13 @@ read_csv("https://docs.google.com/spreadsheets/d/1ETdDJGgHBfp2cYTPwX8GS34xaHrYzo
 ```
 
 
+
+```{r, eval=FALSE}
+
 # Teaching Experience
 
-```{r}
 
-read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTw1G9EQTq60UwuYYDVba9yMhX4xSxghHtbD0NB0XlIHkNsU7dA-hLiY1As1r8WXFAfopCPA_Kg-GK8/pub?output=csv") %>% 
+read_csv("https://docs.google.com/spreadsheets/d/1qfmOKElJVxr9DtztGl_svM4wBZtoLf8Hfx-aw0Blgfw/pub?output=csv") %>% 
   brief_entries(what = what,
                 when = when,
                 with = where)
@@ -98,7 +100,7 @@ tribble(
 
 ```{r}
 
-read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSgiz8F9r8e2ZhibCoPUWQnEXFxWittlZZ-Os2ZsIElBWC07qZSS0hWYdTATPqLvneK8JpzWnyW8YDF/pub?gid=0&single=true&output=csv") %>% 
+read_csv("https://docs.google.com/spreadsheets/d/1H5dvlNNU5VdPGRsmZ_pc_OHEjaco6H1VPWNLtwyYYKU/pub?gid=0&single=true&output=csv") %>% 
   brief_entries(what = what,
                 when = when)
 
@@ -108,7 +110,7 @@ read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSgiz8F9r8e2ZhibCoPUWQ
 
 ```{r}
 
-read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR4RdajvSkIBAwv3lVP6Rx7UJhNpNABkdP85piY6-bC8wI-r4j_gichS6_qTE_hVEZs3G95NqF8Qnif/pub?gid=0&single=true&output=csv") %>% 
+read_csv("https://docs.google.com/spreadsheets/d/17D0TjsxYrdeBFE56pe3FGfVzXJcC2vSlhNmyY90A1Yc/pub?gid=0&single=true&output=csv") %>% 
   brief_entries(what = what,
                 when = when,
                 with = where)
