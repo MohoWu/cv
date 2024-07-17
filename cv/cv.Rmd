@@ -3,8 +3,8 @@ name: Hao
 surname: Wu
 position: Data Scientist
 address: Argus Media
-www: moho.netlify.com
-email: hao.wu@argusmedia.com
+# www: moho.netlify.com
+email: ai910312@gmail.com
 github: mohowu
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
@@ -25,18 +25,6 @@ library(readr)
 library(tidyr)
 ```
 
-# Education
-
-```{r}
-
-read_csv("https://docs.google.com/spreadsheets/d/13nOKX19g6xCLdeEzYrrs__gq8XOb4F3HSCzinfEXrQQ/pub?output=csv") %>% 
-  fill(when, what, where) %>% 
-  detailed_entries(what = what, 
-                   when = when, 
-                   where = where, 
-                   why = why)
-```
-
 # Employment
 
 ```{r}
@@ -52,9 +40,21 @@ read_csv("https://docs.google.com/spreadsheets/d/1ETdDJGgHBfp2cYTPwX8GS34xaHrYzo
 
 ```
 
+# Education
 
+```{r}
 
-```{r, eval=FALSE}
+read_csv("https://docs.google.com/spreadsheets/d/13nOKX19g6xCLdeEzYrrs__gq8XOb4F3HSCzinfEXrQQ/pub?output=csv") %>% 
+  fill(when, what, where) %>% 
+  detailed_entries(what = what, 
+                   when = when, 
+                   where = where, 
+                   why = why)
+```
+
+# Teaching Experience
+
+```{r}
 
 # Teaching Experience
 
@@ -75,17 +75,16 @@ read_csv("https://docs.google.com/spreadsheets/d/1qfmOKElJVxr9DtztGl_svM4wBZtoLf
 
 tribble(
   ~language, ~level,
-  "R", "Proficient",
-  "MySQL", "Intermediate",
-  "CSS, HTML, Bash, Python", "Basic"
+  "R, MySQL, HTML, CSS", "Proficient",
+  "JavaScript, Python", "Intermediate"
 ) %>% 
   brief_entries(language, level)
 
 ```
 
-## Software
+```{r, eval=FALSE}
 
-```{r}
+## Software
 
 tribble(
   ~language, ~level,
@@ -106,9 +105,10 @@ read_csv("https://docs.google.com/spreadsheets/d/1H5dvlNNU5VdPGRsmZ_pc_OHEjaco6H
 
 ```
 
+```{r, eval=FALSE}
+
 # Conferences and Training Courses
 
-```{r}
 
 read_csv("https://docs.google.com/spreadsheets/d/17D0TjsxYrdeBFE56pe3FGfVzXJcC2vSlhNmyY90A1Yc/pub?gid=0&single=true&output=csv") %>% 
   brief_entries(what = what,
@@ -117,8 +117,6 @@ read_csv("https://docs.google.com/spreadsheets/d/17D0TjsxYrdeBFE56pe3FGfVzXJcC2v
 
 ```
 
-
-
 # Publications
 
 ```{r}
@@ -126,4 +124,3 @@ read_csv("https://docs.google.com/spreadsheets/d/17D0TjsxYrdeBFE56pe3FGfVzXJcC2v
 bibliography_entries("pub.bib") 
 
 ```
-
