@@ -8,8 +8,7 @@ email: ai910312@gmail.com
 github: mohowu
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
-  vitae::moderncv:
-    theme: banking
+  vitae::awesomecv
 editor_options: 
   chunk_output_type: console
 ---
