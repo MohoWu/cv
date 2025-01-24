@@ -1,0 +1,75 @@
+---
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: true
+  pdf:
+    author: Hao Wu
+    pdf-engine: weasyprint
+css: cv.css
+format-links: [pdf]
+---
+
+<!-- https://www.cynthiahqy.com/posts/cv-html-pdf/ -->
+
+::: {.print-only .contact-block}
+ai910312\@gmail.com
+:::
+
+## PROFESSIONAL SUMMARY
+
+Data Scientist with over 8 years of experience delivering innovative solutions in the energy sector, specializing in building advanced analytical tools and applications. Proficient in R, Python, and JavaScript, with a strong track record of enhancing user experience and reducing data processing time. Demonstrates expertise in developing custom models for forecasting and scenario analysis, contributing to significant client success and operational efficiency.
+
+## WORK EXPERIENCE {style="page-break-before: always"}
+
+### Data Scientist
+
+***Argus Media*** [Jan 2022 -- Present]{.cvdate}
+
+-   Building a **Generative AI** Shiny application that searches proprietary market articles published within Argus Media.
+    -   Asynchronously calling **APIs** powered by **Python** backend
+    -   Continuous app improvement backed by **custom user analytics**
+-   Successfully delivered £250k web-based solution for Kuwait Petroleum International (KPI), a major European transport fuel supplier, reducing data processing time for clients
+    -   Building **custom Shiny inputs** using **JavaScript** to enhance user experience
+    -   Manage user permission and data storage with **MySQL** and **AWS S3**
+-   Building production ready Shiny dashboards for commodity traders using **{golem}** framework
+    -   Building interface for **Scenario analysis** where users can experiment with the impact of forecast prices after shocking the market drivers
+    -   Building interface where user can **build custom models** to forecast commodity prices
+-   Contributing to the data preparation pipeline that feeds into the models **forecasting commodity prices and distribution**
+
+### Senior Data Science Specialist
+
+***Ricardo Energy & Environment*** [Jan 2020 -- Jan 2022]{.cvdate}
+
+-   Building R Shiny applications integrated with SQL database for data checking and ratification
+-   Building **bespoke R packages** to simplify the process of data analysis
+-   Using regression and tree based statistical models to predict air quality trends
+-   Building **Python CLI** tool to scrape and compare data from XML files
+
+### Data Science Specialist
+
+***Ricardo Energy & Environment*** [Jan 2017 -- Jan 2020]{.cvdate}
+
+-   **Mentoring** staff on doing data analysis in R
+-   **Dynamic reporting**, **data visualisation** and building tools for analysing air quality data
+
+## SKILLS
+
+| Languages  | Level       |
+|------------|-------------|
+| R          | Expert      |
+| HTML, CSS  | Experienced |
+| JavaScript | Skillful    |
+| Python     | Skillful    |
+
+## EDUCATION
+
+**Doctor of Philosophy -- School of Chemistry** <br> *University of Edinburgh* [*2013 --- 2017*]{.cvdate}
+
+-   Understanding the spatial-temporal variability of urban - air pollution
+-   Dispersion and statistical modelling of urban air pollution
+-   Conducting air quality measurements using stationary and portable air quality monitors.
+
+**Bachelor of Science (1^st^ Class) -- Environmental and Sustainable Chemistry** <br> *University of Edinburgh* [*2011 --- 2013*]{.cvdate}
+
+**Bachelor of Science -- Applied Chemistry** <br> *South China University of Technology* [*2009 --- 2011*]{.cvdate}
