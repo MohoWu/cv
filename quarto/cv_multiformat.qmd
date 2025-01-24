@@ -1,8 +1,7 @@
 ---
 title: "Curriculum Vitae"
 format:
-  html:
-    toc: true
+ 
   pdf:
     author: Hao Wu
     pdf-engine: weasyprint
@@ -18,9 +17,9 @@ ai910312\@gmail.com
 
 ## PROFESSIONAL SUMMARY
 
-Data Scientist with over 8 years of experience delivering innovative solutions in the energy sector, specializing in building advanced analytical tools and applications. Proficient in R, Python, and JavaScript, with a strong track record of enhancing user experience and reducing data processing time. Demonstrates expertise in developing custom models for forecasting and scenario analysis, contributing to significant client success and operational efficiency.
+Data Scientist with over 8 years of experience delivering innovative solutions in the **energy sector**, specializing in building advanced analytical tools and applications. Proficient in **R**, **Python**, and **JavaScript**, with a strong track record of enhancing user experience and reducing data processing time. Demonstrates expertise in developing custom models for **forecasting** and scenario analysis, contributing to significant client success and operational efficiency.
 
-## WORK EXPERIENCE {style="page-break-before: always"}
+## WORK EXPERIENCE
 
 ### Data Scientist
 
