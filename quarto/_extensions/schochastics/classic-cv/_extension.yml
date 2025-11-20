@@ -8,4 +8,8 @@ contributes:
       filters: 
         - styles.lua
       template: template.tex
+    classic-cv-pdf:
+      filters: 
+        - styles.lua
+      template: template.tex
 

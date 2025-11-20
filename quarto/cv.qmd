@@ -1,6 +1,6 @@
 ---
 author: Hao Wu
-title: Data Scientist/Shiny Developer
+title: Data Scientist/AI En
 format:
   classic-cv-pdf: default
 cvfooter:
@@ -16,7 +16,7 @@ cvmeta:
     left: Software Engineering, Data Science
     # right: mr.schochastics.net
   - title: Techs
-    left: R, JavaScript, HTML, CSS, Python
+    left: R, Python, JavaScript, HTML, CSS
     # right: david@schochastics.net
 execute:
   echo: false
@@ -37,15 +37,30 @@ library(tidyr)
 cvevents <- function(tbl, when, what, where, details) {
 
     command_start <- "\\cvevent"
+    
+    # Function to escape LaTeX special characters
+    escape_latex <- function(x) {
+      x <- gsub("\\{", "\\\\textbraceleft ", x)
+      x <- gsub("\\}", "\\\\textbraceright ", x)
+      x <- gsub("&", "\\\\&", x)  # Escape ampersand
+      x <- gsub("_", "\\\\_", x)  # Escape underscore
+      return(x)
+    }
 
     res <- paste0(
-        command_start, "{", tbl[[when]], "}", 
-        "{", tbl[[what]], "}",
-        "{", tbl[[where]], "}")
+        command_start, "{", escape_latex(tbl[[when]]), "}", 
+        "{", escape_latex(tbl[[what]]), "}",
+        "{", escape_latex(tbl[[where]]), "}")
     
     if (!missing(details)) {
-          tbl[[details]] <- sapply(tbl[[details]], function(x) paste0("{", x, "}", collapse = ","))
+          tbl[[details]] <- sapply(tbl[[details]], function(x) {
+            # Escape special characters, then wrap each item in braces
+            escaped_items <- sapply(x, escape_latex)
+            paste0("{", escaped_items, "}", collapse = ",")
+          })
     res <- paste0(res, "{",tbl[[details]],"}")
+    } else {
+    res <- paste0(res, "{}")
     }
     cat(res, sep = "\n")
 }
@@ -53,12 +68,11 @@ cvevents <- function(tbl, when, what, where, details) {
 
 # Summary
 
-Data Scientist and R Shiny Developer with strong experience in R development. Skilled in creating interactive data visualizations and applications. A quick learner with a good understanding of data analysis, statistical methods, and machine learning. Focused on delivering practical solutions and continuously improving my skills. Enjoy working with data and keeping up with new tools and techniques in the field.
+**Data Scientist & AI Engineer** with extensive experience in full-stack application development. Expert in operationalising machine learning models and building interactive, data-driven applications using Python and R. Specialized in Generative AI, including the design of RAG pipelines, multimodal embedding strategies, and high-performance vector search optimization. Adept at managing the full lifecycle of data products from research and prototyping to deployment and monitoring.
 
 ```{r}
 #| include: false
-
-exp <- read_csv("https://docs.google.com/spreadsheets/d/1ETdDJGgHBfp2cYTPwX8GS34xaHrYzo5EIeqNCpmyIw8/pub?output=csv") |> 
+exp <- read_csv("https://docs.google.com/spreadsheets/d/1ETdDJGgHBfp2cYTPwX8GS34xaHrYzo5EIeqNCpmyIw8/export?format=csv") |> 
   fill(start, end, what, where) |>  
   mutate(when = glue("{start} - {end}")) |>
   nest(data = c(why)) |> 
@@ -73,9 +87,15 @@ te <- read_csv("https://docs.google.com/spreadsheets/d/1qfmOKElJVxr9DtztGl_svM4w
   nest(data = c(why)) |> 
   mutate(tasks = purrr::map(data, ~{unlist(.x) |> as.character()}))
 
+
+pe <- read_csv("https://docs.google.com/spreadsheets/d/1W1OfFuq-46YZGBaZ_euwjv2xPODuW4kJgNGnoG_gKds/export?format=csv") |>
+  fill(when, what, where) |>
+  nest(data = c(why)) |>
+  mutate(tasks = purrr::map(data, ~{unlist(.x) |> as.character()}))
+
 ```
 
-# Experience
+# Professional Experience
 
 
 ```{r}
@@ -94,11 +114,11 @@ exp |> cvevents(when = "when", what = "what", where = "where", details = "tasks"
 edu |> cvevents(when = "when", what = "what", where = "where", details = "tasks")
 ```
 
-# Teaching Experience
+# Personal Projects
 
 ```{r }
 #| label: teaching exp
 #| output: asis
-te |> cvevents(when = "when", what = "what", where = "where", details = "tasks")
+pe |> cvevents(when = "when", what = "what", where = "where", details = "tasks")
 ```
 
