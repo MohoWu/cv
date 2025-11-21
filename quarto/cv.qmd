@@ -1,6 +1,6 @@
 ---
 author: Hao Wu
-title: Data Scientist/AI En
+title: Data Scientist/Software Engineer
 format:
   classic-cv-pdf: default
 cvfooter:
@@ -68,7 +68,7 @@ cvevents <- function(tbl, when, what, where, details) {
 
 # Summary
 
-**Data Scientist & AI Engineer** with extensive experience in full-stack application development. Expert in operationalising machine learning models and building interactive, data-driven applications using Python and R. Specialized in Generative AI, including the design of RAG pipelines, multimodal embedding strategies, and high-performance vector search optimization. Adept at managing the full lifecycle of data products from research and prototyping to deployment and monitoring.
+**Data Scientist & Software Engineer** with extensive experience in full-stack application development. Expert in operationalising machine learning models and building interactive, data-driven applications using Python and R. Specialized in Generative AI, including the design of RAG pipelines, multimodal embedding strategies, and high-performance vector search optimization. Adept at managing the full lifecycle of data products from research and prototyping to deployment and monitoring.
 
 ```{r}
 #| include: false
