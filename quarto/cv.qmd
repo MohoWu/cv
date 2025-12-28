@@ -30,6 +30,7 @@ library(lubridate)
 library(glue)
 library(readr)
 library(tidyr)
+library(stringr)
 ```
 
 ```{r}
@@ -46,11 +47,99 @@ cvevents <- function(tbl, when, what, where, details) {
       x <- gsub("_", "\\\\_", x)  # Escape underscore
       return(x)
     }
+    
+    # Function to escape URLs for LaTeX (minimal escaping - only for special chars in URLs)
+    escape_url <- function(x) {
+      # URLs in \href should have minimal escaping
+      # Only escape characters that break LaTeX syntax
+      x <- gsub("\\{", "\\\\{", x)
+      x <- gsub("\\}", "\\\\}", x)
+      x <- gsub("#", "\\#", x)
+      x <- gsub("$", "\\$", x)
+      x <- gsub("&", "\\&", x)
+      x <- gsub("%", "\\%", x)
+      return(x)
+    }
+    
+    # Function to convert markdown links [text](url) to LaTeX \href{url}{text}
+    # and escape remaining text that's not part of LaTeX commands
+    convert_markdown_links <- function(x) {
+      if (is.na(x) || length(x) == 0) {
+        return(ifelse(is.na(x), x, ""))
+      }
+      
+      x <- as.character(x)
+      if (nchar(x) == 0) {
+        return(x)
+      }
+      
+      # Pattern to match [text](url)
+      pattern <- "\\[([^\\]]+)\\]\\(([^)]+)\\)"
+      
+      # Check if there are any matches
+      if (!str_detect(x, pattern)) {
+        # No links found, just escape the text
+        return(escape_latex(x))
+      }
+      
+      # Use stringr's str_replace_all with a function for replacement
+      # First, replace links with placeholders
+      result <- x
+      replacements <- list()
+      counter <- 0
+      
+      # Process all matches
+      while (str_detect(result, pattern)) {
+        # Extract the first match
+        match_text <- str_extract(result, pattern)
+        
+        # Extract text and URL from the match
+        text <- str_match(match_text, pattern)[1, 2]
+        url <- str_match(match_text, pattern)[1, 3]
+        
+        # Escape text and URL
+        text_escaped <- escape_latex(text)
+        url_escaped <- escape_url(url)
+        
+        # Create LaTeX command
+        latex_cmd <- paste0("\\href{", url_escaped, "}{", text_escaped, "}")
+        
+****        # Create unique placeholder
+        counter <- counter + 1
+        placeholder <- paste0("XXXLATEXLINK", counter, "XXX")
+        replacements[[placeholder]] <- latex_cmd
+        
+        # Replace first occurrence
+        result <- str_replace(result, pattern, placeholder)
+      }
+      
+      # Escape remaining text
+      result <- escape_latex(result)
+      
+      # Restore LaTeX commands
+      for (ph in names(replacements)) {
+        result <- str_replace_all(result, fixed(ph), replacements[[ph]])
+      }
+      
+      return(result)
+    }
+    
+    # Process the where column: convert markdown links and escape remaining text
+    # Convert each element in the where column
+    where_processed <- character(nrow(tbl))
+    for (i in seq_along(tbl[[where]])) {
+      x <- tbl[[where]][i]
+      if (is.null(x) || is.na(x)) {
+        where_processed[i] <- ifelse(is.na(x), "", as.character(x))
+      } else {
+        where_processed[i] <- convert_markdown_links(as.character(x))
+      }
+    }
 
     res <- paste0(
         command_start, "{", escape_latex(tbl[[when]]), "}", 
         "{", escape_latex(tbl[[what]]), "}",
-        "{", escape_latex(tbl[[where]]), "}")
+        "{", where_processed, "}")
     
     if (!missing(details)) {
           tbl[[details]] <- sapply(tbl[[details]], function(x) {
@@ -122,3 +211,4 @@ edu |> cvevents(when = "when", what = "what", where = "where", details = "tasks"
 pe |> cvevents(when = "when", what = "what", where = "where", details = "tasks")
 ```
 
+****
