@@ -4,20 +4,17 @@ title: Data Scientist/Software Engineer
 format:
   classic-cv-pdf: default
 cvfooter:
-  # left: "mr.schochastics.net"
   right: "github.com/mohowu"
 cvcolor: 58748F #without `#`
 cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
 cvmeta:
   - title: Status
-    left: Data Scientist @ Argus Media
+    left: Freelance Data Scientist/AI Engineer
     right: Didcot, UK
   - title: Field
     left: Software Engineering, Data Science
-    # right: mr.schochastics.net
   - title: Techs
-    left: R, Python, JavaScript, HTML, CSS
-    # right: david@schochastics.net
+    left: Python, R, JavaScript, HTML, CSS
 execute:
   echo: false
 ---
@@ -104,7 +101,7 @@ cvevents <- function(tbl, when, what, where, details) {
         # Create LaTeX command
         latex_cmd <- paste0("\\href{", url_escaped, "}{", text_escaped, "}")
         
-****        # Create unique placeholder
+     # Create unique placeholder
         counter <- counter + 1
         placeholder <- paste0("XXXLATEXLINK", counter, "XXX")
         replacements[[placeholder]] <- latex_cmd
