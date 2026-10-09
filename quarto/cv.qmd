@@ -40,8 +40,11 @@ cvevents <- function(tbl, when, what, where, details) {
     escape_latex <- function(x) {
       x <- gsub("\\{", "\\\\textbraceleft ", x)
       x <- gsub("\\}", "\\\\textbraceright ", x)
-      x <- gsub("&", "\\\\&", x)  # Escape ampersand
-      x <- gsub("_", "\\\\_", x)  # Escape underscore
+      x <- gsub("&", "\\\\&", x)
+      x <- gsub("%", "\\\\%", x)
+      x <- gsub("#", "\\\\#", x)
+      x <- gsub("\\$", "\\\\$", x)
+      x <- gsub("_", "\\\\_", x)
       return(x)
     }
     
@@ -51,10 +54,10 @@ cvevents <- function(tbl, when, what, where, details) {
       # Only escape characters that break LaTeX syntax
       x <- gsub("\\{", "\\\\{", x)
       x <- gsub("\\}", "\\\\}", x)
-      x <- gsub("#", "\\#", x)
-      x <- gsub("$", "\\$", x)
-      x <- gsub("&", "\\&", x)
-      x <- gsub("%", "\\%", x)
+      x <- gsub("#", "\\\\#", x)
+      x <- gsub("\\$", "\\\\$", x)
+      x <- gsub("&", "\\\\&", x)
+      x <- gsub("%", "\\\\%", x)
       return(x)
     }
     
@@ -148,7 +151,9 @@ cvevents <- function(tbl, when, what, where, details) {
     } else {
     res <- paste0(res, "{}")
     }
+    cat("```{=latex}\n", sep = "")
     cat(res, sep = "\n")
+    cat("\n```\n", sep = "")
 }
 ```
 
